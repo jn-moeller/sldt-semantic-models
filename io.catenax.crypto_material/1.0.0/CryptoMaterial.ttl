@@ -39,20 +39,20 @@
    samm:description "Set of one or more instances of cryptographic material associated with a unique instance of a serialized part or just-in-sequence part."@en ;
    samm:characteristic :CryptoMaterialsSet .
 
-:rfc7468 a samm:Value ;
-   samm:preferredName "RFC 7468"@en ;
+:Rfc7468EnumValue a samm:Value ;
+   samm:preferredName "Internet Engineering Task Force Request For Comments 7468"@en ;
    samm:description "Textual representation of BER or DER encoded ASN.1 structures, as specified in IETF RFC 7468."@en ;
    samm:see <https://www.rfc-editor.org/rfc/rfc7468.html> ;
    samm:value "rfc7468" .
 
-:base64 a samm:Value ;
+:Base64EnumValue a samm:Value ;
    samm:preferredName "Base64"@en ;
    samm:description "Textual representation of arbitrary binary data as a string of Base64 characters, as specified in IETF RFC 4648."@en ;
    samm:see <https://www.rfc-editor.org/rfc/rfc4648.html> ;
    samm:value "base64" .
 
-:hex a samm:Value ;
-   samm:preferredName "HEX"@en ;
+:HexEnumValue a samm:Value ;
+   samm:preferredName "hexadecimal"@en ;
    samm:description "Textual representation of arbitrary binary data as a string of Base16 (also referred to as hexadecimal) characters, as specified in IETF RFC 4648."@en ;
    samm:see <https://www.rfc-editor.org/rfc/rfc4648.html> ;
    samm:value "hex" .
@@ -68,7 +68,7 @@
       :encoding
    ) .
 
-:certificateSigningRequest a samm:Value ;
+:CertificateSigningRequestEnumValue a samm:Value ;
    samm:preferredName "certificate signing request"@en ;
    samm:description "Certificate signing request (CSR) for requesting the issuing of a digital certificate to a subject from a certificate authority (CA)."@en ;
    samm:value "certificateSigningRequest" .
@@ -78,15 +78,15 @@
    samm:description "String containing the textual representation the value of cryptographic material in the format and encoding specified in the respective properties."@en ;
    samm:dataType xsd:string .
 
-:pkcs1 a samm:Value ;
-   samm:preferredName "PKCS#1"@en ;
+:Pkcs1EnumValue a samm:Value ;
+   samm:preferredName "Public Key Cryptographic Standard #1"@en ;
    samm:description """PKCS#1 ASN.1 structure format for RSA private and public keys, as specified in IETF RFC 8017.
 
 Note: The PKCS#1 format is only used for asymmetric keys with the RSA algorithm and is superseeded by algorithm agnostic formats. All RSA keys can alternatively be formatted in PKCS#8 for private keys and the X.509 SubjectPublicKeyInfo for public keys, respectively."""@en ;
    samm:see <https://www.rfc-editor.org/rfc/rfc8017.html> ;
    samm:value "pkcs1" .
 
-:publicKey a samm:Value ;
+:PublicKeyEnumValue a samm:Value ;
    samm:preferredName "public key"@en ;
    samm:description "Public key of an asymmetric key pair that is used in an asymmetric cryptographic scheme."@en ;
    samm:value "publicKey" .
@@ -97,8 +97,8 @@ Note: The PKCS#1 format is only used for asymmetric keys with the RSA algorithm 
    samm:characteristic :ValueCharacteristic ;
    samm:exampleValue "-----BEGIN CERTIFICATE REQUEST-----\\nMIIBtzCCAT0CAQAwgZ8xDTALBgNVBCsMBDIwMjUxEzARBgNVBAgMClByb2R1Y3Rp...yVXgPMvdmc33ot8=\\n-----END CERTIFICATE REQUEST-----" .
 
-:pkcs8 a samm:Value ;
-   samm:preferredName "PKCS#8"@en ;
+:Pkcs8EnumValue a samm:Value ;
+   samm:preferredName "Public Key Cryptographic Standard #8"@en ;
    samm:description """PKCS#8 ASN.1 structure format for asymmetric private keys, as specified in IETF RFC 5958.
 
 Note: The PKCS#8v2 format allows to optionally bundle an asymmetric public key and/or a digital certificate with the private key. However, PKCS#8v2 cannot contain a public key or certificate on their own.
@@ -112,34 +112,34 @@ Note: RFC 5958 obsoletes the PKCS#8v1 structure specified in IETF RFC 5208. Howe
    samm:description "Enumeration defining the allowed formats for cryptographic material."@en ;
    samm:dataType xsd:string ;
    samm-c:values (
-      :pkcs1
-      :pkcs8
-      :pkcs10
-      :raw
-      :subjectPublicKeyInfo
-      :x509v3
+      :Pkcs1EnumValue
+      :Pkcs8EnumValue
+      :Pkcs10EnumValue
+      :RawEnumValue
+      :SubjectPublicKeyInfoEnumValue
+      :X509v3EnumValue
    ) .
 
-:pkcs10 a samm:Value ;
-   samm:preferredName "PKCS#10"@en ;
+:Pkcs10EnumValue a samm:Value ;
+   samm:preferredName "Public Key Cryptographic Standard #10"@en ;
    samm:description "PKCS#10 ASN.1 structure format for certificate signing requests, as specified in IETF RFC 2986."@en ;
    samm:see <https://www.rfc-editor.org/rfc/rfc2986.html> ;
    samm:value "pkcs10" .
 
-:raw a samm:Value ;
+:RawEnumValue a samm:Value ;
    samm:preferredName "raw"@en ;
    samm:description """Raw, unformatted binary data. For symmetric keys this is the binary representation of the key value.
 
 Note: This may be used for data that does not follow any specific cryptographic data format. The interpretation of the data is defined between participants."""@en ;
    samm:value "raw" .
 
-:subjectPublicKeyInfo a samm:Value ;
+:SubjectPublicKeyInfoEnumValue a samm:Value ;
    samm:preferredName "subject public key info"@en ;
    samm:description "SubjectPublicKeyInfo ASN.1 structure format for asymmetric public keys, as specified in IETF RFC 5280."@en ;
    samm:see <https://www.rfc-editor.org/rfc/rfc5280.html> ;
    samm:value "subjectPublicKeyInfo" .
 
-:x509v3 a samm:Value ;
+:X509v3EnumValue a samm:Value ;
    samm:preferredName "X.509v3"@en ;
    samm:description "X.509v3 ASN.1 structure format for digital certificates, as specified in IETF RFC 5280."@en ;
    samm:see <https://www.rfc-editor.org/rfc/rfc5280.html> ;
@@ -149,7 +149,7 @@ Note: This may be used for data that does not follow any specific cryptographic 
    samm:preferredName "encoding enumeration"@en ;
    samm:description "Enumeration defining the allowed encodings for cryptographic material."@en ;
    samm:dataType xsd:string ;
-   samm-c:values ( :base64 :hex :rfc7468 ) .
+   samm-c:values ( :Base64EnumValue :HexEnumValue :Rfc7468EnumValue ) .
 
 :type a samm:Property ;
    samm:preferredName "type"@en ;
@@ -170,15 +170,15 @@ Provided cryptographic material must have one of the following types:
    samm:description "Enumeration defining the allowed types of cryptographic material."@en ;
    samm:dataType xsd:string ;
    samm-c:values (
-      :symmetricKey
-      :privateKey
-      :publicKey
-      :certificate
-      :certificateSigningRequest
-      :secretMaterial
+      :SymmetricKeyEnumValue
+      :PrivateKeyEnumValue
+      :PrivateKeyEnumValue
+      :CertificateEnumValue
+      :CertificateSigningRequestEnumValue
+      :SecretMaterialEnumValue
    ) .
 
-:secretMaterial a samm:Value ;
+:SecretMaterialEnumValue a samm:Value ;
    samm:preferredName "secret material"@en ;
    samm:description "Any secret cryptographic material that is not considered a symmetric key or asymmetric private key. Secret cryptographic material includes e.g., passwords, seed values for random number generators, or blobs of secret data."@en ;
    samm:value "secretMaterial" .
@@ -192,7 +192,7 @@ Provided cryptographic material must have one of the following encodings:
 - HEX
 - RFC 7468"""@en ;
    samm:characteristic :EncodingEnumeration ;
-   samm:exampleValue :rfc7468 .
+   samm:exampleValue :Rfc7468EnumValue .
 
 :name a samm:Property ;
    samm:preferredName "name"@en ;
@@ -219,19 +219,19 @@ Provided cryptographic material must have one of the following formats:
 - subjectPublicKeyInfo
 - X.509v3"""@en ;
    samm:characteristic :FormatEnumeration ;
-   samm:exampleValue :pkcs10 .
+   samm:exampleValue :Pkcs10EnumValue .
 
-:privateKey a samm:Value ;
+:PrivateKeyEnumValue a samm:Value ;
    samm:preferredName "private key"@en ;
    samm:description "Private key of an asymmetric key pair that is used in an asymmetric cryptographic scheme."@en ;
    samm:value "privateKey" .
 
-:symmetricKey a samm:Value ;
+:SymmetricKeyEnumValue a samm:Value ;
    samm:preferredName "symmetric key"@en ;
    samm:description "Secret key shared between all participants in a symmetric cryptographic scheme."@en ;
    samm:value "symmetricKey" .
 
-:certificate a samm:Value ;
+:CertificateEnumValue a samm:Value ;
    samm:preferredName "Certificate"@en ;
    samm:description "Digital certificate associating an asymmetric public key to the identity of the certificate's subject."@en ;
    samm:value "certificate" .
